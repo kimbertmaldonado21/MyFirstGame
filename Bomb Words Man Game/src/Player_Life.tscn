@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Character/Player_Life.gd" type="Script" id=1]
+[ext_resource path="res://assets/Health/healthpng.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Kaisei_HarunoUmi/KaiseiHarunoUmi-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/Health/Control.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 1
+font_data = ExtResource( 3 )
+
+[node name="Player_Life" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 128.0
+margin_right = 179.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="YSort" parent="."]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Control"]
+position = Vector2( 32, 40 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="Label" type="Label" parent="Control"]
+margin_left = 64.0
+margin_right = 115.0
+margin_bottom = 73.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = " ="
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

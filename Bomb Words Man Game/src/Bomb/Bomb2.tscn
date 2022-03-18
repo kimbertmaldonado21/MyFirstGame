@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/Bomb/Bomb.png" type="Texture" id=1]
+[ext_resource path="res://src/Bomb/area_ofBomb2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Bomb/bomb.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "bomb_explode"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.1, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.1, 1.3, 1.5, 1.7, 1.9, 2.1, 2.3, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.611765, 0.160784, 0.160784, 1 ), Color( 1, 1, 1, 1 ), Color( 0.627451, 0.168627, 0.168627, 1 ), Color( 1, 1, 1, 1 ), Color( 0.839216, 0.133333, 0.133333, 1 ), Color( 1, 1, 1, 1 ), Color( 0.776471, 0.105882, 0.105882, 1 ), Color( 1, 1, 1, 1 ), Color( 0.776471, 0.129412, 0.129412, 1 ), Color( 1, 1, 1, 1 ), Color( 0.992157, 0, 0, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.5, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "explode"
+}, {
+"args": [  ],
+"method": "done"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 21.2431, 14.2579 )
+
+[node name="Bomb" type="StaticBody2D"]
+collision_layer = 520
+collision_mask = 577
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.611765, 0.160784, 0.160784, 1 )
+position = Vector2( 0, -8 )
+scale = Vector2( 1.72, 1.21028 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 144, 0, 48, 48 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/bomb_explode = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.43782, -2.64866 )
+shape = SubResource( 2 )
+
+[node name="area_ofBomb" parent="." instance=ExtResource( 2 )]
+collision_layer = 264
+collision_mask = 195
+
+[editable path="area_ofBomb"]

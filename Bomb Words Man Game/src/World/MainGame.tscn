@@ -1,0 +1,123 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://src/Character/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Character/attackButtons.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Character/Movement_UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Node2D.gd" type="Script" id=4]
+[ext_resource path="res://src/Character/Pause_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/World/TileMap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Player_Life.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Character/Book.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Box/Boxes.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/World/Timer_of_Game.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/World/Score.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/fonts/Kaisei_HarunoUmi/KaiseiHarunoUmi-Bold.ttf" type="DynamicFontData" id=12]
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+outline_size = 1
+outline_color = Color( 0.188235, 0.0980392, 0.0980392, 1 )
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 12 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Game_Navigation" type="Navigation2D" parent="." groups=[
+"Game_Navigation",
+]]
+
+[node name="TileMap" parent="Game_Navigation" instance=ExtResource( 6 )]
+collision_mask = 65
+tile_data = PoolIntArray( 0, 4, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 5, 0, 65536, 1, 0, 65537, 10, 0, 65538, 10, 0, 65539, 10, 0, 65540, 10, 0, 65541, 9, 0, 65542, 10, 0, 65543, 10, 0, 65544, 9, 0, 65545, 10, 0, 65546, 10, 0, 65547, 9, 0, 65548, 10, 0, 65549, 10, 0, 65550, 10, 0, 65551, 10, 0, 65552, 3, 0, 131072, 1, 0, 131073, 10, 0, 131074, 10, 0, 131075, 9, 0, 131076, 10, 0, 131077, 10, 0, 131078, 10, 0, 131079, 10, 0, 131080, 10, 0, 131081, 10, 0, 131082, 10, 0, 131083, 10, 0, 131084, 10, 0, 131085, 9, 0, 131086, 10, 0, 131087, 10, 0, 131088, 3, 0, 196608, 1, 0, 196609, 9, 0, 196610, 10, 0, 196611, 10, 0, 196612, 10, 0, 196613, 10, 0, 196614, 10, 0, 196615, 9, 0, 196616, 10, 0, 196617, 9, 0, 196618, 10, 0, 196619, 10, 0, 196620, 10, 0, 196621, 10, 0, 196622, 10, 0, 196623, 9, 0, 196624, 3, 0, 262144, 1, 0, 262145, 10, 0, 262146, 10, 0, 262147, 10, 0, 262148, 9, 0, 262149, 10, 0, 262150, 10, 0, 262151, 10, 0, 262152, 10, 0, 262153, 10, 0, 262154, 10, 0, 262155, 9, 0, 262156, 10, 0, 262157, 10, 0, 262158, 10, 0, 262159, 10, 0, 262160, 3, 0, 327680, 1, 0, 327681, 10, 0, 327682, 9, 0, 327683, 10, 0, 327684, 10, 0, 327685, 10, 0, 327686, 10, 0, 327687, 10, 0, 327688, 10, 0, 327689, 10, 0, 327690, 10, 0, 327691, 10, 0, 327692, 10, 0, 327693, 10, 0, 327694, 9, 0, 327695, 10, 0, 327696, 3, 0, 393216, 1, 0, 393217, 10, 0, 393218, 10, 0, 393219, 10, 0, 393220, 10, 0, 393221, 9, 0, 393222, 10, 0, 393223, 9, 0, 393224, 10, 0, 393225, 9, 0, 393226, 10, 0, 393227, 9, 0, 393228, 10, 0, 393229, 10, 0, 393230, 10, 0, 393231, 10, 0, 393232, 3, 0, 458752, 1, 0, 458753, 10, 0, 458754, 10, 0, 458755, 9, 0, 458756, 10, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 10, 0, 458764, 10, 0, 458765, 9, 0, 458766, 10, 0, 458767, 10, 0, 458768, 3, 0, 524288, 1, 0, 524289, 9, 0, 524290, 10, 0, 524291, 10, 0, 524292, 10, 0, 524293, 9, 0, 524294, 10, 0, 524295, 9, 0, 524296, 10, 0, 524297, 9, 0, 524298, 10, 0, 524299, 9, 0, 524300, 10, 0, 524301, 10, 0, 524302, 10, 0, 524303, 9, 0, 524304, 3, 0, 589824, 7, 0, 589825, 2, 0, 589826, 2, 0, 589827, 2, 0, 589828, 2, 0, 589829, 2, 0, 589830, 2, 0, 589831, 2, 0, 589832, 2, 0, 589833, 2, 0, 589834, 2, 0, 589835, 2, 0, 589836, 2, 0, 589837, 2, 0, 589838, 2, 0, 589839, 2, 0, 589840, 6, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="YSort2" parent="YSort" instance=ExtResource( 9 )]
+
+[node name="Movement_UI" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 208, 496 )
+
+[node name="Paused_buttonn" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 7.95349, 8.57591 )
+
+[node name="YSort" type="YSort" parent="YSort"]
+
+[node name="Player_Life" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 128, 0 )
+
+[node name="Label2" parent="YSort/Player_Life" index="0"]
+margin_left = 72.0
+margin_right = 123.0
+
+[node name="Control" parent="YSort/Player_Life" index="1"]
+position = Vector2( -64, 0 )
+
+[node name="YSort_player_life" type="YSort" parent="YSort/Player_Life"]
+
+[node name="Score" type="Label" parent="YSort"]
+visible = false
+margin_left = 448.0
+margin_right = 488.0
+margin_bottom = 14.0
+rect_scale = Vector2( 5, 5 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TIME" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 1384, -496 )
+
+[node name="Label3" parent="YSort/TIME" index="0"]
+margin_left = -680.0
+margin_top = 488.0
+margin_right = -618.0
+margin_bottom = 512.0
+
+[node name="Label" parent="YSort/TIME" index="2"]
+margin_left = -488.0
+margin_top = 496.0
+margin_right = -448.0
+margin_bottom = 521.0
+custom_fonts/font = SubResource( 1 )
+
+[node name="Player" parent="YSort" groups=[
+"Player",
+] instance=ExtResource( 1 )]
+position = Vector2( 99.5338, 99.5338 )
+
+[node name="Book" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 64, 0 )
+
+[node name="attackButtons" parent="YSort/Book" instance=ExtResource( 2 )]
+position = Vector2( 816, 544 )
+
+[node name="Score2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 72, 8 )
+
+[node name="Score" parent="YSort/Score2" index="0"]
+margin_left = 400.0
+margin_top = -16.0
+margin_right = 409.0
+margin_bottom = 8.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+
+[node name="Ysort_enemy" type="YSort" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Game_paused" type="YSort" parent="."]
+
+[editable path="YSort/YSort2"]
+[editable path="YSort/Player_Life"]
+[editable path="YSort/TIME"]
+[editable path="YSort/Score2"]

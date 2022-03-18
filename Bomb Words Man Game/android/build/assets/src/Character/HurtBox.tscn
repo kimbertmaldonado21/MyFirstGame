@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Character/HurtBox.gd" type="Script" id=1]
+
+[node name="Area2D" type="Area2D"]
+position = Vector2( 0.697468, -0.816284 )
+scale = Vector2( 1, 1.17954 )
+collision_layer = 514
+collision_mask = 200
+script = ExtResource( 1 )
+
+[node name="CollisionHurtBox" type="CollisionShape2D" parent="."]
+position = Vector2( 5.69809e-08, 3.65357e-08 )
+
+[connection signal="area_entered" from="." to="." method="_on_Area2D_area_entered"]

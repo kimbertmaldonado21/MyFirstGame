@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Button/Weapon/Pickaxe.png" type="Texture" id=1]
+[ext_resource path="res://assets/Button/Weapon/Pickaxe2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Button/Weapon/bomb2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Button/Weapon/Bomb.png" type="Texture" id=4]
+[ext_resource path="res://src/Character/attackButtons.gd" type="Script" id=5]
+
+[node name="attackButtons" type="Node2D"]
+modulate = Color( 1, 1, 1, 0.811765 )
+script = ExtResource( 5 )
+
+[node name="Bomb" type="TouchScreenButton" parent="."]
+position = Vector2( 60.3692, -124.268 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 3 )
+
+[node name="Pickaxe" type="TouchScreenButton" parent="."]
+position = Vector2( -22.8558, -23.5866 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+
+[connection signal="pressed" from="Bomb" to="." method="_on_Bomb_pressed"]
+[connection signal="released" from="Bomb" to="." method="_on_Bomb_released"]
+[connection signal="pressed" from="Pickaxe" to="." method="_on_Pickaxe_pressed"]
+[connection signal="released" from="Pickaxe" to="." method="_on_Pickaxe_released"]

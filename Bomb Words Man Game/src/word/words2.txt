@@ -1,0 +1,11 @@
+TEXT_______-__________
+General terms
+abstract data type 
+abstract method
+Analog
+Bandwidth
+Big data
+Bit
+Bug
+Cloud storage
+Code

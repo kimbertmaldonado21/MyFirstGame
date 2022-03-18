@@ -1,0 +1,266 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://assets/Background/Background.png" type="Texture" id=1]
+[ext_resource path="res://assets/Background/example-textbox.png" type="Texture" id=2]
+[ext_resource path="res://assets/Button/Weapon/Bomb.png" type="Texture" id=3]
+[ext_resource path="res://assets/Button/Weapon/bomb2.png" type="Texture" id=4]
+[ext_resource path="res://assets/tutorial/bomb_1.png" type="Texture" id=5]
+[ext_resource path="res://src/howToplay.gd" type="Script" id=6]
+[ext_resource path="res://assets/tutorial/bomb_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/tutorial/movement.png" type="Texture" id=8]
+[ext_resource path="res://assets/Button/Movement/right2.png" type="Texture" id=9]
+[ext_resource path="res://assets/Button/Movement/right.png" type="Texture" id=10]
+[ext_resource path="res://assets/Button/InPause/Pause_button.png" type="Texture" id=11]
+[ext_resource path="res://assets/Button/Book/Book_close.png" type="Texture" id=12]
+[ext_resource path="res://assets/tutorial/book_1.png" type="Texture" id=13]
+[ext_resource path="res://assets/tutorial/box_enemy.png" type="Texture" id=14]
+[ext_resource path="res://assets/tutorial/book_3.png" type="Texture" id=15]
+[ext_resource path="res://assets/tutorial/book_2.png" type="Texture" id=16]
+[ext_resource path="res://assets/tutorial/book_4.png" type="Texture" id=17]
+[ext_resource path="res://assets/tutorial/box_boss.png" type="Texture" id=18]
+[ext_resource path="res://assets/Box.png" type="Texture" id=19]
+[ext_resource path="res://assets/tutorial/book_5.png" type="Texture" id=20]
+[ext_resource path="res://assets/tutorial/box_bomb.png" type="Texture" id=21]
+[ext_resource path="res://assets/tutorial/box_book.png" type="Texture" id=22]
+[ext_resource path="res://assets/tutorial/box_none.png" type="Texture" id=23]
+[ext_resource path="res://assets/Button/InPause/retry1.png" type="Texture" id=24]
+[ext_resource path="res://assets/Button/InPause/retry2.png" type="Texture" id=25]
+[ext_resource path="res://assets/Button/Book/Book.png" type="Texture" id=26]
+[ext_resource path="res://assets/fonts/Kaisei_HarunoUmi/KaiseiHarunoUmi-Bold.ttf" type="DynamicFontData" id=27]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+font_data = ExtResource( 27 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1082.0
+margin_bottom = 740.0
+texture = ExtResource( 1 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_left = -76.0
+margin_top = -90.0
+margin_right = 1207.0
+margin_bottom = 808.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bomb_icon" type="TouchScreenButton" parent="."]
+position = Vector2( 278.504, 535.751 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 4 )
+
+[node name="Movement_icon" type="TouchScreenButton" parent="."]
+position = Vector2( 411.853, 537.249 )
+normal = ExtResource( 10 )
+pressed = ExtResource( 9 )
+
+[node name="Book_icon" type="TouchScreenButton" parent="."]
+position = Vector2( 536.306, 538.931 )
+normal = ExtResource( 12 )
+pressed = ExtResource( 26 )
+
+[node name="Box_icon" type="TouchScreenButton" parent="."]
+position = Vector2( 683.14, 540.429 )
+normal = ExtResource( 19 )
+
+[node name="Reset" type="TouchScreenButton" parent="."]
+position = Vector2( 805.14, 542.429 )
+normal = ExtResource( 24 )
+pressed = ExtResource( 25 )
+
+[node name="Back" type="TouchScreenButton" parent="."]
+position = Vector2( 206.504, 611.751 )
+rotation = 3.13266
+normal = ExtResource( 11 )
+pressed = ExtResource( 4 )
+
+[node name="Bomb" type="YSort" parent="."]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="Bomb"]
+position = Vector2( 295.915, 153.828 )
+scale = Vector2( 0.344997, 0.313108 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="Bomb"]
+position = Vector2( 809.834, 152.329 )
+scale = Vector2( 0.344997, 0.313108 )
+texture = ExtResource( 7 )
+
+[node name="Panel" type="Panel" parent="Bomb"]
+margin_left = 33.0
+margin_top = 305.0
+margin_right = 1075.0
+margin_bottom = 490.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="Bomb/Panel"]
+margin_left = 60.7154
+margin_top = 8.52545
+margin_right = 543.715
+margin_bottom = 122.525
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "This Bomb icon will trigger the user to use bomb skill leaving a bomb in his current position, it can damaged the player and the enemy but it can't be used to destroy boxes"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="movement" type="YSort" parent="."]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="movement"]
+position = Vector2( 563.04, 167.336 )
+scale = Vector2( 0.511375, 0.357042 )
+texture = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="movement"]
+margin_left = 33.0
+margin_top = 353.0
+margin_right = 1075.0
+margin_bottom = 490.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="movement/Panel"]
+margin_left = 59.3012
+margin_top = 11.3539
+margin_right = 542.301
+margin_bottom = 125.354
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Moving icon will allow the user to easily move within the map"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Book" type="YSort" parent="."]
+visible = false
+
+[node name="book1" type="Sprite" parent="Book"]
+position = Vector2( 227.149, 208.28 )
+scale = Vector2( 0.262449, 0.364684 )
+texture = ExtResource( 13 )
+
+[node name="book2" type="Sprite" parent="Book"]
+position = Vector2( 562.862, 117.511 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 16 )
+
+[node name="book3" type="Sprite" parent="Book"]
+position = Vector2( 871.564, 114.514 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 15 )
+
+[node name="book4" type="Sprite" parent="Book"]
+position = Vector2( 566.866, 336.097 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 17 )
+
+[node name="book5" type="Sprite" parent="Book"]
+position = Vector2( 872.381, 331.766 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 20 )
+
+[node name="Panel" type="Panel" parent="Book"]
+margin_left = 33.0
+margin_top = 375.224
+margin_right = 1075.0
+margin_bottom = 512.224
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="Book/Panel"]
+margin_left = 31.8252
+margin_top = 7.76221
+margin_right = 532.825
+margin_bottom = 121.762
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Book icon will show a text box to type a word if the word exist it will show the meaning of it, otherwise it will show nothing"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="box" type="YSort" parent="."]
+visible = false
+
+[node name="book2" type="Sprite" parent="box"]
+position = Vector2( 562.862, 117.511 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 22 )
+
+[node name="book6" type="Sprite" parent="box"]
+position = Vector2( 245.205, 118.633 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 21 )
+
+[node name="book3" type="Sprite" parent="box"]
+position = Vector2( 871.564, 114.514 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 18 )
+
+[node name="book4" type="Sprite" parent="box"]
+position = Vector2( 734.261, 340.335 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 14 )
+
+[node name="book5" type="Sprite" parent="box"]
+position = Vector2( 405.158, 340.242 )
+scale = Vector2( 0.181803, 0.222301 )
+texture = ExtResource( 23 )
+
+[node name="Panel" type="Panel" parent="box"]
+margin_left = 33.0
+margin_top = 353.0
+margin_right = 1075.0
+margin_bottom = 490.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score2" type="Label" parent="box/Panel"]
+margin_left = 59.3012
+margin_top = 11.3539
+margin_right = 542.301
+margin_bottom = 125.354
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Destroying box will how a chance of  getting bomb, Enemy boss, heart, Book and also null or nothing"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Bomb_icon" to="." method="_on_TouchScreenButton_pressed"]
+[connection signal="pressed" from="Movement_icon" to="." method="_on_Movement_icon_pressed"]
+[connection signal="pressed" from="Book_icon" to="." method="_on_Book_icon_pressed"]
+[connection signal="pressed" from="Box_icon" to="." method="_on_Box_icon_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_Box_icon2_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

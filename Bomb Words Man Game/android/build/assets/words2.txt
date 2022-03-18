@@ -1,0 +1,91 @@
+TEXT_______-__________
+Abstract data type
+is a type or class for objects whose behaviour is defined by a set of value and a set of operations. It is called abstract because it gives an implementation-independent view.
+Abstract method
+ is a method that is declared without an implementation (without braces, and followed by a semicolon), like this: abstract void moveTo(double deltaX, double deltaY);
+Analog
+Analog is defined as a watch that uses hands moving around the face of the watch to indicate time, rather than digital numbers.
+Bandwidth
+Bandwidth is the data transfer capacity of a computer network in bits per second (Bps). The term may also be used colloquially to indicate a person's capacity for tasks or deep thoughts at a point in time.
+Big data
+is a field that treats ways to analyze, systematically extract information from, or otherwise deal with data sets that are too large or complex to be dealt with by traditional data-processing application software.
+Cloud storage
+Cloud storage is a way for businesses and consumers to save data securely online so that it can be accessed anytime from any location and easily shared with those who are granted permission. Cloud storage also offers a way to back up data to facilitate recovery off-site.
+Code
+ code is a set of rules or a system of communication, often with randomly assigned numbers and letters given specific meanings. 
+Algorithm
+a process or set of rules to be followed in calculations or other problem-solving operations, especially by a computer.
+Application
+A computer program with an interface, enabling people to use the computer as a tool to accomplish a specific task. Word processing, spreadsheet, and communications software are all examples of applications.
+Binary 
+Binary is a base-2 number system invented by Gottfried Leibniz that's made up of only two numbers or digits: 0 (zero) and 1 (one). This numbering system is the basis for all binary code, which is used to write digital data such as the computer processor instructions used every day
+Bitmap
+is a type of memory organization or image file format used to store digital images. 
+Bug 
+a bug refers to an error, fault or flaw in any computer program or a hardware system. 
+Broadband
+is the transmission of wide bandwidth data over a high speed internet connection.
+Byte
+the basic unit of information in computer storage and processing. A byte consists of 8 adjacent binary digits (bits), each of which consists of a 0 or 1.
+Backup
+In information technology, a backup, or data backup is a copy of computer data taken and stored elsewhere so that it may be used to restore the original after a data loss event. 
+Compile
+is the creation of an executable program from code written in a compiled programming language.
+Computer
+computer is an electronic device that manipulates information, or data.
+Command
+a command is a directive to a computer program to perform a specific task.
+Computer program
+computer program is a list of instructions that tell a computer what to do. 
+Data
+data is information that has been translated into a form that is efficient for movement or processing.
+Database
+database is an organized collection of structured information, or data, typically stored electronically in a computer system.
+Debug
+In computer programming and software development, debugging is the process of finding and resolving bugs within computer programs, software, or systems.
+Dashboard
+a dashboard is a type of user interface which presents information to the user.
+Development
+Software development refers to a set of computer science activities dedicated to the process of creating, designing, deploying and supporting software
+Email
+e-mail is a message transmitted and received by computers through a network.
+Firewall
+firewall is a security device — computer hardware or software — that can help protect your network by filtering traffic and blocking outsiders from gaining unauthorized access to the private data on your computer.
+Flowchart
+is a diagram of the steps in a process and their sequence. 
+Flashdrive
+is a small and portable storage device that connects to computers and other devices using a USB Type-A plug that is built onto the drive.
+Gigabyte
+Gigabyte is 109 or 1,000,000,000 bytes. One gigabyte (abbreviated "GB") is equal to 1,000 megabytes and precedes the terabyte unit of measurement. 
+Html
+is the set of markup symbols or codes inserted into a file intended for display on the Internet. The markup tells web browsers how to display a web page's words and images.
+Hyperlink
+ is a word, phrase, or image that you can click on to jump to a new document or a new section within the current document
+Interface
+interface is a shared boundary across which two or more separate components of a computer system exchange information. 
+Internet
+Internet is a vast network that connects computers all over the world. 
+Java
+Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.
+Joystick
+joystick is a cursor control device used in computer games and assistive technology 
+Login
+logon is the procedure used to get access to an operating system or application,
+Logout
+Loging out means to end access to a computer system or a website
+Malware
+Malware is the collective name for a number of malicious software variants, including viruses, ransomware and spyware.
+Memory
+memory is a device or system that is used to store information for immediate use in a computer or related computer hardware and digital electronic devices.
+Offline
+When a computer or other device is not turned on or connected to other devices, it is said to be "offline." 
+Pseudocode
+plain language description of the steps in an algorithm or another system. 
+Html
+HyperText Markup Language, Or the standard markup language for documents designed to be displayed in a web browser. 
+Class
+a user defined blueprint or prototype from which objects are created. Or a blueprint of codes
+Programmer
+an individual that writes/creates computer software or applications by giving the computer specific programming instructions. 
+Method
+in object-oriented programming is a procedure associated with a class. A method defines the behavior of the objects that are created

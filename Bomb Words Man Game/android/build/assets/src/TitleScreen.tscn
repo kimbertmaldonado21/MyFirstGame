@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Background/Button/Button_ExitGamepng.png" type="Texture" id=1]
+[ext_resource path="res://assets/Background/Background.png" type="Texture" id=2]
+[ext_resource path="res://assets/Background/Button/Button_NewGame.png" type="Texture" id=3]
+[ext_resource path="res://src/TitleScreen.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+font_path = "res://assets/fonts/Kaisei_HarunoUmi/KaiseiHarunoUmi-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 1 )
+
+[node name="Title_Screen" type="Control"]
+margin_left = -4.24261
+margin_top = -7.07107
+margin_right = -4.24261
+margin_bottom = -7.07107
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 542.17, 331.49 )
+scale = Vector2( 1.03152, 0.867975 )
+texture = ExtResource( 2 )
+
+[node name="NewGameButton" type="Button" parent="."]
+margin_left = 14.0496
+margin_top = 430.462
+margin_right = 346.05
+margin_bottom = 500.462
+icon = ExtResource( 3 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="."]
+margin_left = 13.3822
+margin_top = 519.865
+margin_right = 345.382
+margin_bottom = 589.865
+icon = ExtResource( 1 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore" type="Label" parent="."]
+margin_left = 653.389
+margin_top = 113.433
+margin_right = 1005.39
+margin_bottom = 218.433
+rect_pivot_offset = Vector2( 51.4471, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScore2" type="Label" parent="."]
+margin_left = 547.389
+margin_top = 29.4331
+margin_right = 1007.39
+margin_bottom = 134.433
+rect_pivot_offset = Vector2( 51.4471, 0 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "HIGHSCORE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_NewGameButton_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_QuitButton_pressed"]

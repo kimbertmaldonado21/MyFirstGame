@@ -1,0 +1,190 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Enemy/FireBall/Fireball.png" type="Texture" id=1]
+[ext_resource path="res://src/Character/Enemy.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 41.1422, 33.8054 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 17.0962, 22.6726 )
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.764055 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.686275, 0.403922, 0.403922, 1 ), Color( 0.756863, 0.192157, 0.192157, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 17, 16, 15, 14, 13, 13, 12 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.9
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 9, 10, 11, 12, 13, 14, 15, 16, 17 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.85 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "respawn_animEnd"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hit:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.4, 0.6, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.14545, 0.149779 ), Vector2( 0.322254, 0.376505 ), Vector2( 0.605593, 0.720953 ), Vector2( 0.893012, 0.775891 ), Vector2( 0.983982, 0.981978 ), Vector2( 0.983982, 0.981978 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.7
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bomb_collision2:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.35 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 25.361
+height = 25.361
+
+[node name="enemy" type="KinematicBody2D"]
+self_modulate = Color( 0.614379, 0.614379, 0.614379, 1 )
+position = Vector2( 0, 1.90735e-06 )
+scale = Vector2( 1.35744, 0.705699 )
+collision_layer = 192
+collision_mask = 2147483960
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+self_modulate = Color( 0.951373, 0.838431, 0.838431, 1 )
+position = Vector2( 1.49012e-08, -2.69711e-06 )
+scale = Vector2( 0.895879, 0.791842 )
+texture = ExtResource( 1 )
+hframes = 10
+vframes = 2
+frame = 11
+
+[node name="bomb_collision2" type="CollisionShape2D" parent="."]
+position = Vector2( -5.96046e-08, -2.65241e-06 )
+scale = Vector2( 0.403177, 0.780679 )
+shape = SubResource( 1 )
+
+[node name="HurtBox" type="Area2D" parent="."]
+position = Vector2( 0.36544, -0.843526 )
+scale = Vector2( 0.499057, 0.433186 )
+collision_layer = 64
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( -1.17162, 2.92089 )
+scale = Vector2( 0.611643, 0.855384 )
+shape = SubResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/Death = SubResource( 3 )
+anims/idle_down = SubResource( 4 )
+anims/run_down = SubResource( 5 )
+
+[node name="Hit" type="Area2D" parent="."]
+position = Vector2( -5.68434e-14, 5.72205e-06 )
+scale = Vector2( 0.381188, 0.433187 )
+collision_layer = 128
+collision_mask = 515
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+shape = SubResource( 6 )
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Hit" to="." method="_on_Hit_area_entered"]
+[connection signal="body_entered" from="Hit" to="." method="_on_Hit_body_entered"]

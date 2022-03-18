@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Enemy/towerpng.png" type="Texture" id=1]
+[ext_resource path="res://src/Character/Boss.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 43.8526, 43.5631 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 91.7646
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 17.6803, 34.0088 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "respawn"
+loop = true
+step = 0.04
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 2, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0, 4, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, 6, -0.25, 0, 0.25, 0, 7, -0.25, 0, 0.25, 0, 8, -0.25, 0, 0.25, 0, 9, -0.25, 0, 0.25, 0, 10, -0.25, 0, 0.25, 0, 11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1 )
+}
+
+[node name="enemy_Boss" type="KinematicBody2D"]
+self_modulate = Color( 0.614379, 0.614379, 0.614379, 1 )
+position = Vector2( 32, 32 )
+scale = Vector2( 1.35744, 0.705699 )
+collision_layer = 192
+collision_mask = 2147483965
+script = ExtResource( 2 )
+
+[node name="Wall_bomb_collision2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2.70278e-06 )
+scale = Vector2( 0.403177, 0.780679 )
+shape = SubResource( 1 )
+
+[node name="Detection_area" type="Area2D" parent="."]
+collision_layer = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_area"]
+scale = Vector2( 0.965897, 1.70331 )
+shape = SubResource( 2 )
+
+[node name="Hurt_Boxx" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt_Boxx"]
+shape = SubResource( 3 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/respawn = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.63676, 1.24934 )
+texture = ExtResource( 1 )
+hframes = 16
+frame = 15
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer_fIRE" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="body_entered" from="Detection_area" to="." method="_on_Detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_area" to="." method="_on_Detection_area_body_exited"]
+[connection signal="area_entered" from="Hurt_Boxx" to="." method="_on_Hurt_Boxx_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer_fIRE" to="." method="_on_Timer_fIRE_timeout"]

@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/Button/InPause/Pause_button.png" type="Texture" id=1]
+[ext_resource path="res://src/Character/Pause_button.gd" type="Script" id=2]
+[ext_resource path="res://assets/Button/InPause/Main_Button.png" type="Texture" id=3]
+[ext_resource path="res://assets/Button/InPause/play_button-export.png" type="Texture" id=4]
+[ext_resource path="res://assets/Button/InPause/retry2.png" type="Texture" id=5]
+[ext_resource path="res://assets/Button/InPause/quit_Button.png" type="Texture" id=6]
+[ext_resource path="res://assets/Button/InPause/retry1.png" type="Texture" id=7]
+[ext_resource path="res://assets/Background/Background2.png" type="Texture" id=8]
+
+[sub_resource type="ImageTexture" id=1]
+
+[sub_resource type="ImageTexture" id=2]
+
+[node name="Paused_buttonn" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="PButton" type="TouchScreenButton" parent="."]
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 4 )
+
+[node name="Paused_Panel" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 100
+
+[node name="Control" type="Control" parent="Paused_Panel"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Paused_Panel/Control"]
+visible = false
+margin_left = 377.193
+margin_top = 132.572
+margin_right = 667.193
+margin_bottom = 473.572
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Paused_Panel/Control/Panel"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="TouchScreenButton" parent="Paused_Panel/Control"]
+position = Vector2( 16.271, 13.685 )
+scale = Vector2( 0.5, 0.5 )
+normal = ExtResource( 4 )
+
+[node name="retry" type="TouchScreenButton" parent="Paused_Panel/Control"]
+position = Vector2( 476.038, 148.164 )
+scale = Vector2( 1.28726, 1.33146 )
+normal = ExtResource( 7 )
+pressed = ExtResource( 5 )
+
+[node name="Main" type="TouchScreenButton" parent="Paused_Panel/Control"]
+position = Vector2( 345.459, 240.08 )
+scale = Vector2( 1.11418, 1 )
+normal = ExtResource( 3 )
+pressed = SubResource( 1 )
+
+[node name="Quit" type="TouchScreenButton" parent="Paused_Panel/Control"]
+position = Vector2( 354.076, 337.575 )
+scale = Vector2( 1.05315, 1 )
+normal = ExtResource( 6 )
+pressed = SubResource( 2 )
+shape_centered = false
+shape_visible = false
+
+[connection signal="pressed" from="PButton" to="." method="_on_PButton_pressed"]
+[connection signal="pressed" from="Paused_Panel/Control/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Paused_Panel/Control/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Paused_Panel/Control/Main" to="." method="_on_Main_pressed"]
+[connection signal="pressed" from="Paused_Panel/Control/Quit" to="." method="_on_Quit_pressed"]
